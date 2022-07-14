@@ -64,6 +64,8 @@ public class ScalaGraphQLCodegen extends GraphQLCodegen {
         super.initCustomTypeMappings(scalarTypeDefinitions);
         mappingConfig.putCustomTypeMappingIfAbsent("ID", String.class.getSimpleName());
         mappingConfig.putCustomTypeMappingIfAbsent("String", String.class.getSimpleName());
+        mappingConfig.putCustomTypeMappingIfAbsent("String",
+        				Utils.wrapString(String.class.getSimpleName(), "scala.Option[", "]"));
         mappingConfig.putCustomTypeMappingIfAbsent("Int", "scala.Option[Int]");
         mappingConfig.putCustomTypeMappingIfAbsent("Int!", "Int");
         mappingConfig.putCustomTypeMappingIfAbsent("Float",
